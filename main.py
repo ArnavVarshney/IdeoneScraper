@@ -16,6 +16,8 @@ def main():
         j = 1
         while j in range(1, 41):
             try:
+                print("Matching with: ", end='')
+                print(str(inputs))
                 print('-' * 80)
                 ideone_recents_url = 'https://ideone.com/recent/'
                 ideone_recents_url += str(j)
@@ -60,8 +62,6 @@ while i in range(num_inputs):
     input_to_match = input_to_match.replace(" ", "").replace("\n", "")
     inputs.append(input_to_match)
     i += 1
-print("Matching with: ", end='')
-print(str(inputs))
 
 if __name__ == "__main__":
     main()
