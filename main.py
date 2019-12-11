@@ -10,25 +10,28 @@ i = 0
 
 
 def main():
-    j = 1
-    while j in range(1, 40):
-        try:
-            print('-' * 80)
-            ideone_recents_url = 'https://ideone.com/recent/'
-            ideone_recents_url += str(j)
-            r = s.get(ideone_recents_url)
-            print('Scraping from: ' + ideone_recents_url)
-            soup = bs(r.text, 'lxml')
-            for source in soup.findAll("div", "header"):
-                _id = source.find("a").text[1:]
-                if _id not in processed_ids:
-                    current_ids.append(_id)
-            j += 1
-            print('Processed IDs: ' + str(len(processed_ids)))
-            print('Current IDs: ' + str(len(current_ids)))
-            process()
-        except:
-            pass
+    while True:
+        if input('Do you want to restart? ').upper() == 'N':
+            break
+        j = 1
+        while j in range(1, 41):
+            try:
+                print('-' * 80)
+                ideone_recents_url = 'https://ideone.com/recent/'
+                ideone_recents_url += str(j)
+                r = s.get(ideone_recents_url)
+                print('Scraping from: ' + ideone_recents_url)
+                soup = bs(r.text, 'lxml')
+                for source in soup.findAll("div", "header"):
+                    _id = source.find("a").text[1:]
+                    if _id not in processed_ids:
+                        current_ids.append(_id)
+                j += 1
+                print('Processed IDs: ' + str(len(processed_ids)))
+                print('Current IDs: ' + str(len(current_ids)))
+                process()
+            except:
+                pass
 
 
 def process():
