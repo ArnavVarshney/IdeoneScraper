@@ -7,15 +7,19 @@ current_ids = []
 s = requests.session()
 inputs = []
 i = 0
+flag = False
 
 
 def main():
+    global flag
     while True:
-        if input('Do you want to restart? ').upper() == 'N':
-            break
+        if flag:
+            if input('Do you want to restart? ').upper() == 'N':
+                break
         j = 1
         while j in range(1, 41):
             try:
+                flag = True
                 print("Matching with: ", end='')
                 print(str(inputs))
                 print('-' * 80)
