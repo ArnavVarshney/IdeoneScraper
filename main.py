@@ -20,7 +20,7 @@ def main():
         while j in range(1, 41):
             try:
                 flag = True
-                print('-' * 80)
+                # print('-' * 80)
                 ideone_recents_url = 'https://ideone.com/recent/'
                 ideone_recents_url += str(j)
                 r = s.get(ideone_recents_url)
@@ -31,16 +31,16 @@ def main():
                     if _id not in processed_ids:
                         current_ids.append(_id)
                 j += 1
-                print('Processed IDs: ' + str(len(processed_ids)))
-                print('Current IDs: ' + str(len(current_ids)))
+                # print('Processed IDs: ' + str(len(processed_ids)))
+                # print('Current IDs: ' + str(len(current_ids)))
                 process()
             except:
                 pass
 
 
 def process():
-    print('-' * 80)
-    print('Starting processing of this batch')
+    # print('-' * 80)
+    # print('Starting processing of this batch')
     while current_ids:
         _id = current_ids.pop()
         processed_ids.append(_id)
@@ -51,13 +51,15 @@ def process():
         stdin = stdin.replace(" ", "").replace("\n", "")
         if stdin in inputs:
             print('Match found at:' + sol_url)
-    else:
-        print('Finished processing this batch')
-        print('Processed IDs: ' + str(len(processed_ids)))
-        print('Current IDs: ' + str(len(current_ids)))
+    # else:
 
 
-print('-' * 80)
+# print('Finished processing this batch')
+# print('Processed IDs: ' + str(len(processed_ids)))
+# print('Current IDs: ' + str(len(current_ids)))
+
+
+# print('-' * 80)
 num_inputs = int(input('Number of inputs to match with: '))
 while i in range(num_inputs):
     input_to_match = input("Input to match with: ")
